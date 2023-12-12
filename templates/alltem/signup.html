@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <p>Creer un compte</p>
+        <form class="form" action="" method="POST">
+            {% csrf_token %}
+            <table class="table">
+                {% for field in form %}
+                    <tr><td><label >{{field.label}}:</label></td><td class="field">{{field}}</td></tr>
+                {% endfor %}
+                {%for message in messages%}
+                    <p style="color: red;">{{message}}</p>
+                {%endfor%}
+                <tr><td colspan="2"><button type="submit">Enregistrer</button></td></tr>
+            </table>
+        </form>
+        <p>Vous avez deja un compte</p>
+        <a href="{% url 'signin' %}" class="btn btn--link">Sign in</a>
+    </div>
+    
+</body>
+</html>

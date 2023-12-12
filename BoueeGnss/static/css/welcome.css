@@ -1,0 +1,17 @@
+.titre{
+    font-size: 50px;
+    margin-bottom: 100PX;
+}
+body{
+    background-color: darkblue;
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.corps{
+    font-size: 25px;
+}
+.link{
+    font-size: 25px;
+    margin-top: 100px;
+}
