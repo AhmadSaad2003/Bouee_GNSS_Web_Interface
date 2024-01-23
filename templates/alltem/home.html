@@ -15,7 +15,7 @@
             <label for="Bouee">Choisir une Bouée</label>
             <select id="Bouee" name="Bouee">
             {% for bouee in Bouees %}
-                <option value="{{ bouee.name }}">{{ bouee.name }}</option>
+                <option value="{{ bouee.name }}">{{ bouee.name }}{{bouee.serienumber}}</option>
             {% endfor %}
             </select>
             <button type="submit">Afficher les données</button>

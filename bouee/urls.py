@@ -9,4 +9,5 @@ urlpatterns = [
 
     path('home/', views.home, name="home"),
     path('affiche/', views.affiche, name="affiche"),
+    path('affichetemp/',views.affichetemp, name="affichetemp")
 ]   

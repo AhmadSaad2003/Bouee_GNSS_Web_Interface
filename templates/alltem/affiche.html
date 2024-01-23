@@ -9,7 +9,8 @@
 </head>
 <body>
     <header>
-        <P>Voicie les donnees de la bouee {{bouee_selected}}</P>
+        <P>Voicie les donnees de la bouee {{bouee_selected.name}}</P>
+        <a href="{% url 'affichetemp' %}?q={{bouee_selected.name}}">Afficher Temperature</a>
     </header>
     <table>
         <tr><th>Date</th><th>Lattitude</th><th>Longitude</th><th>Altitude</th><th>Nombre des sattelittes</th><th>Temperature</th><th>Humidite</th><th>Pression</th></tr>
