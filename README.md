@@ -17,7 +17,7 @@ This project is a "reboot" of a previous 3rd year project (hence the fork from h
 ## Software
 This repository contains all the files necessary to deploy the remote server software on a PC.
 
-__--Please code and comment your code in ENGLISH.--__
+__Please code and comment your code in ENGLISH__
 
 The files are organised as follows :
 [description]
