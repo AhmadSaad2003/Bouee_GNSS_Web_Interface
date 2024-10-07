@@ -1,41 +1,93 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f8f9fa;
+    /* Couleur de fond */
     margin: 0;
+    padding: 0;
 }
 
-header {
-    background-color: #3498db;
-    padding: 40px;
-    text-align: center;
+/* Header */
+.header {
+    background-color: #007bff;
+    /* Couleur de fond du header */
+    padding: 20px;
     color: #fff;
-    font-size: 24px; /* Ajustez la valeur pour agrandir la taille de la police */
+    /* Couleur du texte */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.phrase {
+    font-size: 24px;
+    /* Taille de la police du titre */
+    font-weight: bold;
+    /* Gras pour le titre */
+    /* Supprimer les marges par défaut */
+    font-family: Arial, sans-serif;
+    /* Changer la police */
+    margin-top: 20px;
+}
+
+.header-right {
+    display: flex;
+    float: right;
+    margin-bottom: 10px;
+    /* Utiliser flexbox pour aligner les liens à droite */
+}
+
+.header-right a {
+    color: #fff;
+    /* Couleur du texte des liens */
+    text-decoration: none;
+    /* Supprimer le soulignement des liens */
+    font-size: 18px;
+    /* Taille de la police des liens */
+    margin-left: 20px;
+    /* Ajouter de l'espace entre les liens */
+    border-radius: 5px;
+    /* Ajouter un coin arrondi aux liens */
+    padding: 10px 20px;
+    /* Ajouter un espace de remplissage aux liens */
+    background-color: #001aff;
+    /* Couleur de fond des liens */
+    transition: background-color 0.3s;
+    /* Transition pour un changement de couleur au survol */
+}
+
+.header-right a:hover {
+    background-color: #001aff;
+    /* Couleur de fond des liens au survol */
+}
+
+/* Tableau */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
-    border: 1px solid #ddd;
+th,
+td {
+    border: 1px solid #dee2e6;
+    /* Couleur de la bordure */
     padding: 12px;
-    text-align: left;
-    font-size: 16px; /* Ajustez la valeur pour agrandir la taille de la police */
+    text-align: center;
 }
 
 th {
-    background-color: #3498db;
+    background-color: #001aff;
+    /* Couleur de fond de l'en-tête de colonne */
     color: #fff;
+    /* Couleur du texte de l'en-tête de colonne */
 }
 
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #f8f9fa;
+    /* Couleur de fond des lignes paires du tableau */
 }
 
 tr:hover {
-    background-color: #e0f7fa;
-    transition: background-color 0.3s;
+    background-color: #e2e6ea;
+    /* Couleur de fond des lignes au survol */
 }

@@ -1,17 +1,73 @@
-.titre{
-    font-size: 50px;
-    margin-bottom: 100PX;
+.titre {
+    font-size: 100px;
+    margin-bottom: 20px;
+    /* Espacement entre le titre et la description */
+    background: linear-gradient(to right, #001aff, #001aff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    text-align: center;
+    /* Centrer le texte */
 }
-body{
-    background-color: #3498db;
+
+.descriptionp {
+    font-size: 20px;
+    background: linear-gradient(to right, #001aff, #001aff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-style: italic;
+    text-align: center;
+    /* Centrer le texte */
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../image/R.jpeg');
     text-align: center;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    /* Make the background image cover the entire background */
+    background-position: center;
+    /* Center the background image */
 }
-.corps{
+
+.corps {
     font-size: 25px;
 }
-.link{
-    font-size: 25px;
-    margin-top: 100px;
+
+.link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #001aff;
+    /* Couleur bleu clair */
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    /* Forme spéciale avec coins arrondis */
+    font-size: 16px;
+    text-decoration: none;
+    /* Supprime les styles de soulignement de lien */
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+}
+
+.description {
+    width: 50%;
+    height: 200px;
+    /* Hauteur de la zone de texte */
+    align-items: center;
+    text-align: center;
+    /* Désactiver le redimensionnement de la zone de texte */
+    /* Ajouter une barre de défilement verticale si nécessaire */
+    padding: 10px;
+    margin-left: 25%;
+    /* Ajouter un espace intérieur pour le texte */
 }

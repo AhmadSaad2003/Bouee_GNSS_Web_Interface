@@ -1,24 +1,90 @@
-body{
-    background-color: #3498db;
-    justify-content: center;
-    color: white;
+body {
+    background-image: url('../image/R\ \(1\).jpeg');
+    background-size: cover;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Centrage vertical */
+    margin: 0;
+    color: #fff;
+    /* Texte blanc */
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.main{
+.main {
     border-radius: 10px;
     text-align: center;
-	box-shadow: 5px 20px 50px #000;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    /* Ombre douce */
     padding: 30px;
-    margin-top: 170px;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Fond semi-transparent */
+    width: 400px;
+    /* Largeur fixe */
 }
-td{
+
+td {
     padding: 10px;
 }
-td input{
+
+td input {
+    border: none;
+    /* Supprimer la bordure */
     border-radius: 5px;
+    padding: 8px;
+    /* Espacement intérieur */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fond semi-transparent */
+    color: #fff;
+    /* Texte blanc */
+    width: 100%;
+    /* Largeur maximale */
+    box-sizing: border-box;
+    /* Boîte de modèle incluant la bordure */
 }
-button{
+
+button {
+    border: none;
     border-radius: 5px;
+    padding: 10px 20px;
+    background-color: #001aff;
+    /* Couleur de fond */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Transition fluide */
+}
+
+button:hover {
+    background-color: #2980b9;
+    /* Changement de couleur au survol */
+}
+
+.btn--link {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    /* Transition fluide */
+}
+
+.btn--link:hover {
+    color: #2980b9;
+    /* Changement de couleur au survol */
+}
+
+.signininputs {
+    border: none;
+    /* Supprimer la bordure */
+    border-radius: 5px;
+    padding: 8px;
+    /* Espacement intérieur */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fond semi-transparent */
+    color: #fff;
+    /* Texte blanc */
+    width: 100%;
+    /* Largeur maximale */
+    box-sizing: border-box;
+    /* Boîte de modèle incluant la bordure */
 }

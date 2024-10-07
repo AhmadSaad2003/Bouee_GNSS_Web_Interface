@@ -9,5 +9,8 @@ urlpatterns = [
 
     path('home/', views.home, name="home"),
     path('affiche/', views.affiche, name="affiche"),
-    path('affichetemp/',views.affichetemp, name="affichetemp")
+    path('affichetemp/', views.affichetemp, name="affichetemp"),
+    path('affichepress/', views.affichepress, name="affichepress"),
+    path('affichehum/', views.affichehum, name="affichehum"),
+    path('affichemap/', views.affichemap, name="affichemap"),
 ]   

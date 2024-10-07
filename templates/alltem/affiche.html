@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/afficher.css' %}">
     <title>Afficher</title>
 </head>
+
 <body>
-    <header>
-        <P>Voicie les donnees de la bouee {{bouee_selected.name}}</P>
-        <a href="{% url 'affichetemp' %}?q={{bouee_selected.name}}">Afficher Temperature</a>
-    </header>
+    <div calss="header">
+        <p class="phrase">Voicie les donnees de la bouee {{bouee_selected.name}}</p>
+        <div class="header-right">
+            <a href="{% url 'affichetemp'  %}?q={{bouee_selected.id}}">Temperature</a>
+            <a href="{% url 'affichepress'  %}?q={{bouee_selected.id}}">Pression</a>
+            <a href="{% url 'affichehum'  %}?q={{bouee_selected.id}}">Humidite</a>
+        </div>
+    </div>
     <table>
-        <tr><th>Date</th><th>Lattitude</th><th>Longitude</th><th>Altitude</th><th>Nombre des sattelittes</th><th>Temperature</th><th>Humidite</th><th>Pression</th></tr>
-        {% for donne in Donnee %}
-        {% if donne.bouee == bouee_selected %}
         <tr>
-            <td>{{ donne.date }}</td>
-            <td>{{ donne.lattitude }}</td>
-            <td>{{ donne.longitude }}</td>
-            <td>{{ donne.altitude }}</td>
-            <td>{{ donne.nombredesattelite }}</td>
-            <td>{{ donne.temp }}</td>
-            <td>{{ donne.hum }}</td>
-            <td>{{ donne.press }}</td>
+            <th>Date</th>
+            <th>Lattitude</th>
+            <th>Longitude</th>
+            <th>Altitude</th>
+            <th>Nombre des sattelittes</th>
+        </tr>
+        {% for donnegnss in DonneeGnss %}
+        {% if donnegnss.bouee == bouee_selected %}
+        <tr>
+            <td>{{ donnegnss.date }}</td>
+            <td>{{ donnegnss.lattitude }}</td>
+            <td>{{ donnegnss.longitude }}</td>
+            <td>{{ donnegnss.altitude }}</td>
+            <td>{{ donnegnss.nombredesattelite }}</td>
         </tr>
         {% endif %}
         {% endfor %}
     </table>
 </body>
+
 </html>

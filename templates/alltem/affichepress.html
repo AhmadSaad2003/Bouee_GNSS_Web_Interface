@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Graphique de pression</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{% static 'css/graphe.css' %}">
+</head>
+
+
+<body>
+    <h1>Graphique de pression</h1>
+    <button onclick="goback()">Go Back</button>
+    <canvas id="humChart" width="1000" height="500"></canvas>
+    <script>
+        // Récupérer les données JSON transmises par la vue Django
+        var data = JSON.parse('{{ data_json|escapejs }}');
+        var dates = data.dates;
+        var pressions = data.pressions;
+
+        var ctx = document.getElementById('humChart').getContext('2d');
+        var humChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'Pression',
+                    data: pressions,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        function goback() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>

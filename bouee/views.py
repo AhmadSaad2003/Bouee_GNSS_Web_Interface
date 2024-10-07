@@ -4,10 +4,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .models import Bouee, Donnees
+from .models import Bouee, DonneesGnss, DonneesCapteures
 from io import BytesIO
 import base64
 import matplotlib.pyplot as plt
+import json
 
 def welcome(request):
     return render(request, 'alltem/welcome.html')
@@ -50,7 +51,7 @@ def logoutuser(request):
     logout(request)
     return redirect('signin')
 
-#@login_required(login_url='signin')
+@login_required(login_url='signin')
 def home(request):
     Bouees = Bouee.objects.all()
     return render(request, 'alltem/home.html', {'Bouees':Bouees})
@@ -60,32 +61,59 @@ def affiche(request):
     if request.method == 'POST':
         s = request.POST.get('Bouee')
     bouee_selected=Bouee.objects.get(name=s)
-    Donnee = Donnees.objects.all()
-    context={'Donnee':Donnee, 'bouee_selected':bouee_selected}
+    DonneeGnss = DonneesGnss.objects.filter(bouee=bouee_selected)
+    context={'DonneeGnss':DonneeGnss, 'bouee_selected':bouee_selected}
     return render(request, 'alltem/affiche.html', context)
 
 @login_required(login_url='signin')
 def affichetemp(request):
     q=request.GET.get('q')
-    bouee_selected=Bouee.objects.get(name=q)
-    Donnee = Donnees.objects.filter(bouee=bouee_selected)
+    bouee_selected=Bouee.objects.get(id=q)
+    DonneesCapt = DonneesCapteures.objects.filter(bouee=bouee_selected)
+    # Récupérer les données de température et de date
+    temperatures = [donnees.temp for donnees in DonneesCapt]
+    dates = [donnees.date for donnees in DonneesCapt]
 
-    timestamps = [don.date for don in Donnee]
-    temperature_values = [don.temp for don in Donnee]
+    # Convertir les données en JSON pour les transmettre au template
+    data_json = json.dumps({'dates': dates, 'temperatures': temperatures})
 
-    plt.plot(timestamps, temperature_values)
-    plt.xlabel('Timestamp')
-    plt.ylabel('Temperature')
-    plt.title('Temperature over Time')
-    plt.xticks(rotation=45)
+    return render(request, 'alltem/affichetemp.html', {'data_json': data_json})
 
-    # Sauvegarde du graphique dans un objet BytesIO
-    image_stream = BytesIO()
-    plt.savefig(image_stream, format='png')
-    plt.close()
+    
 
-     # Encodage de l'image en base64
-    image_base64 = base64.b64encode(image_stream.getvalue()).decode('utf-8')
+@login_required(login_url='signin')
+def affichepress(request):
+    q=request.GET.get('q')
+    bouee_selected=Bouee.objects.get(id=q)
+    DonneesCapt = DonneesCapteures.objects.filter(bouee=bouee_selected)
+    # Récupérer les données de température et de date
+    pressions = [donnees.press for donnees in DonneesCapt]
+    dates = [donnees.date for donnees in DonneesCapt]
 
-    # Affichage de l'image dans le modèle
-    return render(request, 'alltem/temperature_chart.html', {'image': image_base64})
+    # Convertir les données en JSON pour les transmettre au template
+    data_json = json.dumps({'dates': dates, 'pressions': pressions})
+
+    return render(request, 'alltem/affichepress.html', {'data_json': data_json})
+
+
+@login_required(login_url='signin')
+def affichehum(request):
+    q=request.GET.get('q')
+    bouee_selected=Bouee.objects.get(id=q)
+    DonneesCapt = DonneesCapteures.objects.filter(bouee=bouee_selected)
+    # Récupérer les données de température et de date
+    humidites = [donnees.hum for donnees in DonneesCapt]
+    dates = [donnees.date for donnees in DonneesCapt]
+
+    # Convertir les données en JSON pour les transmettre au template
+    data_json = json.dumps({'dates': dates, 'humidites': humidites})
+
+    return render(request, 'alltem/affichehum.html', {'data_json': data_json})
+
+@login_required(login_url='signin')
+def affichemap(request):
+    q = request.GET.get('q')
+    bouee_selected=Bouee.objects.get(id=q)
+    DonneeGnss = DonneesGnss.objects.filter(bouee=bouee_selected)
+    context={'DonneeGnss':DonneeGnss, 'bouee_selected':bouee_selected}
+    return render(request, 'alltem/map.html', context)

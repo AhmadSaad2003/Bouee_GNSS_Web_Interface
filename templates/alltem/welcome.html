@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,26 @@
     <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
     <title>Document</title>
 </head>
+
 <body>
-    <p class="titre">Bouee Gnss</p>
-    <pre class="corps">
-        Bouee Gnss
-    </pre>
-    <p class="link">Bien venu a notre site web. Pour commencer votre experience avec nous creer un compte en cliquant <a href="{% url 'signup' %}">ici</a>.</p>
+    <p class="titre">BOUEE GNSS</p>
+    <P class="descriptionp">Bienvenue pour découvrir l'environnement</P>
+    <div class="description">
+        Bienvenue sur notre application, où vous pouvez explorer en temps réel une gamme diversifiée de données
+        environnementales. Notre plateforme offre une expérience immersive en fournissant des informations précieuses
+        telles que la pression atmosphérique, l'humidité, la température, l'altitude, ainsi que les coordonnées
+        géographiques de latitude et longitude issues des systèmes GNSS. Grâce à notre interface conviviale, vous pouvez
+        visualiser ces données de manière claire et concise, vous permettant ainsi de surveiller les conditions
+        environnementales actuelles et de suivre les changements en temps réel. Que vous soyez un passionné de
+        météorologie, un chercheur ou un amateur de plein air, notre application vous fournit les outils nécessaires
+        pour explorer et comprendre notre monde de manière approfondie et engageante.
+    </div>
+    <br>
+
+
+
+    <a href="{% url 'signup' %}" class="link">Se connecter</a></p>
+
 </body>
+
 </html>

@@ -13,10 +13,10 @@
         <form class="form" action="" method="POST">
             {% csrf_token %}
             <table class="table">
-                <tr><td><label >Username:</label></td><td><input type="text" name="username"></td></tr>
-                <tr><td><label >Password:</label></td><td><input type="password" name="password"></td></tr>
-                <tr><td colspan="2"><button type="submit">Sign in</button></td></tr>
+                <tr><td><label >Username:</label></td><td><input type="text" name="username" class="signininputs"></td></tr>
+                <tr><td><label >Password:</label></td><td><input type="password" name="password" class="signininputs"></td></tr>
             </table>
+            <button type="submit">Sign in</button>
         </form>
         <p>Vous n'avez pas un compte</p>
         <a href="{% url 'signup' %}" class="btn btn--link">Sign up</a>

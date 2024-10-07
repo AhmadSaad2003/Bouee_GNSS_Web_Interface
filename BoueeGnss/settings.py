@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-^7*%for8)*y1(q6f9iw-o-8@7%%-ha_#9c2uvc5xanmtg6s-p#
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+#'172.18.16.117'
 
 # Application definition
 
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'BoueeGnss.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'projetbouee',
+        'USER': 'boueegnss',
+        'PASSWORD':'hydro',
+        'HOST': '172.18.20.28,192.168.4.1',
+        'PORT':'5432',
     }
 }
 
